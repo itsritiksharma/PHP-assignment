@@ -1,76 +1,33 @@
 
-<?php echo file_get_contents("index.html")?>
-
-<?php
-  //variables for first name and last name
-$nameErr=$full_name=$first_name=$last_name="";
-
-if ($_SERVER['REQUEST_METHOD']=="POST"){
-    //check if the input field is filled or not
-  if (empty($_POST["firstname"])) {
-    $nameErr = "First Name is required";
-  } else {
-    $first_name = test_input($_POST["firstname"]);
-    // checks if fist name only contains letters
-    if (!preg_match("/^[a-zA-Z]*$/",$first_name)) {
-      $nameErr = "Only letters allowed";
-    }
-  }
-    //check if the input field is filled or not
-  if (empty($_POST["lastname"])) {
-    $nameErr = "Last Name is required";
-  } else {
-    $last_name = test_input($_POST["lastname"]);
-    // checks if last name only contains letters
-    if (!preg_match("/^[a-zA-Z]*$/",$last_name)) {
-      $nameErr = "Only letters allowed";
-    }
-  }
-
-}
-
-//function fro test input
-
-function test_input($data){
-  $data=trim($data);
-  return $data;
-}
-
-?>
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>  
 
 
-<?php
-$full_name=$first_name." ".$last_name;
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">  
+  first Name: <input type="text" name="firstname" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $firstNameErr;?></span>
+  <br><br>
+  
+  Last Name: <input type="text" name="lastname" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $lastNameErr;?></span>
+  <br><br>
 
-echo "<br>";
-
-echo "Hello ".$full_name."!";
-
-echo "<br>";
-?>
+  Full Name: <input disabled type="text" name="fullname" value="<?php echo $full_name;?>">
+  <span class="error">* <?php echo $fullameErr;?></span>
+  <br><br>
 
 
-<?php
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-  }
-}
-?>
+  <input type="submit" name="submit" value="Submit">  
+</form>
 
-<?php
-echo "<br>";
-echo "Full Name: ".$full_name;
-echo "<br>";
-?>
+<?php include('form.php');?>
 
+</body>
+</html>
