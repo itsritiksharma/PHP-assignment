@@ -117,7 +117,7 @@ echo "<br>";
 
 $filename = "../TRN-18/uploads/".$fileNameNew; 
 
-echo "<img src='".$filename."'>"
+echo "<img src='".$filename."' widht:200px, height:200px>"
 
 ?> 
 
@@ -131,8 +131,21 @@ echo "<br>";
 <?php 
 //display the textarea value
 echo "<br><br>";
-$result=$_REQUEST['marks'];
-echo str_replace("\n","<br>",$result);
+$result=$_POST['marks'];
+foreach(explode("\n", $result) as $x){
+	$y[]=explode('|',$x);
+}
+
+echo "<table border=1; cellspacing=0>";
+for($z=0;$z<count($y);$z++){
+
+	echo "<tr>";
+	echo "<td>".$y[$z][0]."</td>";
+	echo "<td>".$y[$z][1]."</td";
+	echo "</tr>";
+	
+}
+echo "</table>";
 ?>
 
 
