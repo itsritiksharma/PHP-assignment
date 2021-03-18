@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>  
-		<?php include('email.php');?>
+		<?php include('doc.php');?>
 
 		<p><span class="error">* required field</span></p>
 
@@ -153,7 +153,9 @@
 					  	} 
 
 				  	$file=fopen("abel.doc","w+") or die("Unable to open file");
+				  	fwrite($file,$full_name);
 				  	fwrite($file,$email);
+				  	fwrite($file,$phone);
 				  	fclose($file);
 
 					$fileDest = '/var/www/PHP-assignment/TRN-55/'.$file;
