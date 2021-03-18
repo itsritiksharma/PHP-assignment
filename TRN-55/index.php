@@ -81,12 +81,12 @@
 
 					else
 						{
+
 					  		echo "<br><br>";
 					        echo "Hello ".$full_name."!";
 					        echo "<br><br>";
 					        
 					        echo "Phone number is: ".$phone;
-
 
 					        echo "<br><br>";
 					 		$result=$_POST['marks'];
@@ -133,7 +133,7 @@
 													$fileNameNew = uniqid('',true).".".$fileActualExt;
 
 													//destionation of file to be upladed at
-													$fileDest = '/var/www/PHP-assignment/TRN-45/uploads/'.$fileNameNew;
+													$fileDest = '/var/www/PHP-assignment/TRN-55/uploads/'.$fileNameNew;
 													move_uploaded_file($fileTmpName, $fileDest);//moves the file to the desired location
 												}
 											else
@@ -151,6 +151,13 @@
 									$uploadErr = "You cannot upload files of this type";
 								}
 					  	} 
+
+				  	$file=fopen("abel.doc","w+") or die("Unable to open file");
+				  	fwrite($file,$email);
+				  	fclose($file);
+
+					$fileDest = '/var/www/PHP-assignment/TRN-55/'.$file;
+					move_uploaded_file($file, $fileDest);
 					//image display script
 					$filename = "uploads/".$fileNameNew; 
 					echo "<img class='image' src='".$filename."'>";
