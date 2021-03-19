@@ -37,6 +37,8 @@
 			E-mail: <input type="text" name="email" value="<?php echo $email;?>">
 			<span class="error">* <?php echo $emailErr;?></span>
 			<br><br>
+
+			
 			  
 			<input type="submit" name="submit" value="Submit">  
 		</form>
@@ -91,22 +93,21 @@
 					        echo "<br><br>";
 					 		$result=$_POST['marks'];
 							foreach(explode("\n", $result) as $x)
-							{
-							  	$y[]=explode('|',$x);
-							}
+								{
+								  	$y[]=explode('|',$x);
+								}
 
 							echo "<table border=1; cellspacing=0>";
 							for($z=0;$z<count($y);$z++)
-							{
-							  	echo "<tr>";
-							  	echo "<td>".$y[$z][0]."</td>";
-							  	echo "<td>".$y[$z][1]."</td";
-							  	echo "</tr>";
-							}
+								{
+								  	echo "<tr>";
+								  	echo "<td>".$y[$z][0]."</td>";
+								  	echo "<td>".$y[$z][1]."</td";
+								  	echo "</tr>";
+								}
 							echo "</table>";
 
 							$file=$_FILES['file'];
-
 							$fileName=$_FILES['file']['name'];
 							$fileSize=$_FILES['file']['size'];
 							$fileError=$_FILES['file']['error'];
@@ -152,7 +153,7 @@
 								}
 					  	} 
 
-				  	$file=fopen("abel.doc","w+") or die("Unable to open file");
+				  	$file=fopen("details.doc","w+") or die("Unable to open file");
 				  	fwrite($file,$full_name);
 				  	fwrite($file,$email);
 				  	fwrite($file,$phone);
@@ -160,6 +161,23 @@
 
 					$fileDest = '/var/www/PHP-assignment/TRN-55/'.$file;
 					move_uploaded_file($file, $fileDest);
+
+					if (!empty($_Get['file']))
+						{
+							if (!empty($file) && file_exists($fileDest)) 
+								{
+									header('Content-Description: File Transfer');
+									header('Content-Type: application/zip');
+									header('Content-Disposition: attachment; filename="'.basename($file).'"');
+									header('Expires: 0');
+									header('Cache-Control: public');
+									header('Pragma: public');
+									header('Content-Length: ' . filesize($file));
+									readfile($fileDest);
+									exit;
+								}
+						}
+
 					//image display script
 					$filename = "uploads/".$fileNameNew; 
 					echo "<img class='image' src='".$filename."'>";
