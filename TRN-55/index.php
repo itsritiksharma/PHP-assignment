@@ -38,8 +38,8 @@
 			<span class="error">* <?php echo $emailErr;?></span>
 			<br><br>
 
-			
-			  
+			<a href="download.php?file=details.doc">Download details</a>
+
 			<input type="submit" name="submit" value="Submit">  
 		</form>
 
