@@ -38,9 +38,9 @@
 			<span class="error">* <?php echo $emailErr;?></span>
 			<br><br>
 
-			<a href="download.php?file=details.doc">Download details</a>
+			<input type="submit" name="submit" value="Submit">
+			<br><br>
 
-			<input type="submit" name="submit" value="Submit">  
 		</form>
 
 		<?php
@@ -157,30 +157,19 @@
 				  	fwrite($file,$full_name);
 				  	fwrite($file,$email);
 				  	fwrite($file,$phone);
+				  	file_get_contents($file);
+				  	file_put_contents($file, "<img src='".$fileTmpName."'>");
 				  	fclose($file);
 
 					$fileDest = '/var/www/PHP-assignment/TRN-55/'.$file;
 					move_uploaded_file($file, $fileDest);
 
-					if (!empty($_Get['file']))
-						{
-							if (!empty($file) && file_exists($fileDest)) 
-								{
-									header('Content-Description: File Transfer');
-									header('Content-Type: application/zip');
-									header('Content-Disposition: attachment; filename="'.basename($file).'"');
-									header('Expires: 0');
-									header('Cache-Control: public');
-									header('Pragma: public');
-									header('Content-Length: ' . filesize($file));
-									readfile($fileDest);
-									exit;
-								}
-						}
-
 					//image display script
 					$filename = "uploads/".$fileNameNew; 
 					echo "<img class='image' src='".$filename."'>";
+
+					echo "<br><br>";
+				  	echo "<a href='download.php?file=details.doc'>Download details</a>";
 				}
 		?>
 
