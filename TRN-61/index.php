@@ -23,6 +23,9 @@
 			<span class="error">* <?php echo $passErr;?></span>(qwerty)
 			<br><br>
 
+			<input type="checkbox" name="remember" value='1'>Remember me
+			<br><br>
+
 			<input type="submit" name="submit" value="Submit">
 			<br><br>
 
