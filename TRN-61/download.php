@@ -1,6 +1,7 @@
 <?php
+session_start();
 $filedown = $_GET['file'];
-$fileDest = '/var/www/PHP-assignment/TRN-55/'.$filedown;
+$fileDest = '/var/www/PHP-assignment/TRN-61/TRN-55'.$filedown;
 	if (!empty($filedown))
 		{
 			if (!empty($filedown) && file_exists($fileDest)) 
