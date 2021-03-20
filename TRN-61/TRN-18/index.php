@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>  
 <html>
   <head>
-      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="../style.css">
   </head>
   <body>
     <?php include('upload.php');?>
@@ -42,7 +42,7 @@
           else
             {
                     echo "<br><br>";
-                    $filename = "uploads/".$fileNameNew; 
+                    $filename = "../uploads/".$fileNameNew; 
                     echo "<img src='".$filename."' style='widht:200px;height:200px'>";
                     echo "<br><br>";
                     echo "Hello ".$full_name."!";
