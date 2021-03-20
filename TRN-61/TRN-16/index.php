@@ -54,7 +54,8 @@
         <a href="../TRN-18/index.php">Assignment 2</a>
         <a href="../TRN-20/index.php">Assignment 3</a>
         <a href="../TRN-42/index.php">Assignment 4</a>
-        <a href="../TRN-45">Assignment 5</a>
+        <a href="../TRN-45/index.php">Assignment 5</a>
+        <a href="../TRN-55/index.php">Assingment 6</a>
         <a href="#">&raquo;</a>
       </div>
 
