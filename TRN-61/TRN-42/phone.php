@@ -1,7 +1,7 @@
 <?php
 // define variables and set to empty values
-  $firstNameErr = $lastNameErr =$emailErr = $phoneErr =$fullNameErr = $uploadErr = "";
-  $first_name = $last_name =$full_name = $email = $phone = "";
+  $firstNameErr = $lastNameErr = $phoneErr =$fullNameErr = $uploadErr = "";
+  $first_name = $last_name =$full_name = $phone = "";
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {

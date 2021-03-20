@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
 				$fileNameNew = uniqid('',true).".".$fileActualExt;
 
 				//destionation of file to be upladed at
-				$fileDest = '/var/www/PHP-assignment/TRN-18/uploads/'.$fileNameNew;
+				$fileDest = '/var/www/PHP-assignment/TRN-61/uploads/'.$fileNameNew;
 				move_uploaded_file($fileTmpName, $fileDest);//moves the file to the desired location
 
 				$full_name=$first_name." ".$last_name;
