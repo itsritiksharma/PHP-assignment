@@ -90,25 +90,22 @@
 					  		echo "<br><br>";
 					        echo "Hello ".$full_name."!";
 					        echo "<br><br>";
-					        
 					        echo "Phone number is: ".$phone;
-
-
 					        echo "<br><br>";
 					 		$result=$_POST['marks'];
 							foreach(explode("\n", $result) as $x)
-							{
-							  	$y[]=explode('|',$x);
-							}
+								{
+								  	$y[]=explode('|',$x);
+								}
 
 							echo "<table border=1; cellspacing=0>";
 							for($z=0;$z<count($y);$z++)
-							{
-							  	echo "<tr>";
-							  	echo "<td>".$y[$z][0]."</td>";
-							  	echo "<td>".$y[$z][1]."</td";
-							  	echo "</tr>";
-							}
+								{
+								  	echo "<tr>";
+								  	echo "<td>".$y[$z][0]."</td>";
+								  	echo "<td>".$y[$z][1]."</td";
+								  	echo "</tr>";
+								}
 							echo "</table>";
 
 							$file=$_FILES['file'];
@@ -139,7 +136,7 @@
 													$fileNameNew = uniqid('',true).".".$fileActualExt;
 
 													//destionation of file to be upladed at
-													$fileDest = '/var/www/PHP-assignment/TRN-45/uploads/'.$fileNameNew;
+													$fileDest = '/var/www/PHP-assignment/TRN-61/uploads/'.$fileNameNew;
 													move_uploaded_file($fileTmpName, $fileDest);//moves the file to the desired location
 												}
 											else
@@ -157,7 +154,7 @@
 									$uploadErr = "You cannot upload files of this type";
 								}
 							//image display script
-							$filename = "uploads/".$fileNameNew; 
+							$filename = "../uploads/".$fileNameNew; 
 							echo "<img class='image' src='".$filename."'>";
 					  	} 
 				}
@@ -171,6 +168,7 @@
 			<a href="../TRN-20/index.php">Assignment 3</a>
 			<a href="../TRN-42/index.php">Assignment 4</a>
 			<a href="index.php">Assignment 5</a>
+			<a href="../TRN-55/index.php">Assingment 6</a>
 			<a href="#">&raquo;</a>
 		</div>
 
