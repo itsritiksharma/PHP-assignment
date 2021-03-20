@@ -1,12 +1,9 @@
-<?php
-    session_start();
-?>
 
 <!DOCTYPE HTML>  
 <html>
     <head>
         <title>Form</title>
-        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>  
         <?php include('function.php');?>
@@ -99,7 +96,7 @@
                                                     $fileNameNew = uniqid('',true).".".$fileActualExt;
 
                                                     //destionation of file to be upladed at
-                                                    $fileDest = '/var/www/PHP-assignment/TRN-61/uploads/'.$fileNameNew;
+                                                    $fileDest = '/var/www/PHP-assignment/TRN-20/uploads/'.$fileNameNew;
                                                     move_uploaded_file($fileTmpName, $fileDest);//moves the file to the desired location
                                                 }
                                             else
@@ -117,29 +114,11 @@
                                     $uploadErr = "You cannot upload files of this type";
                                 }
                             //image display script
-                            $filename = "../uploads/".$fileNameNew; 
+                            $filename = "uploads/".$fileNameNew; 
                             echo "<img class='image' src='".$filename."'>";
                         } 
                 }
         ?>
-
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href='../index2.php'>Home</a>
-            <a href="../TRN-16/index.php">Assignment 1</a>
-            <a href="../TRN-18/index.php">Assignment 2</a>
-            <a href="index.php">Assignment 3</a>
-            <a href="../TRN-42/index.php">Assignment 4</a>
-            <a href="../TRN-45/index.php">Assignment 5</a>
-            <a href="../TRN-55/index.php">Assingment 6</a>
-            <a href="#">&raquo;</a>
-        </div>
-
-        <?php
-            echo "<br><br>";
-            echo "<a href='../logout.php'>Logout</a>";
-            echo "<br><br>";
-        ?>
-
+        
     </body>
 </html>
