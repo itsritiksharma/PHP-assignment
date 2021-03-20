@@ -26,13 +26,14 @@
 			Full Name: <input disabled type="text" name="fullname" value="<?php echo $full_name;?>">
 			<span class="error"> <?php echo $fullNameErr;?></span>
 			<br><br>
+			
+			Upload file: <input type="file" name="file">
+			<span class="error"> <?php echo $uploadErr;?></span>
+			<br><br>
 
 			Enter marks: <textarea name="marks" rows="5" cols="40"></textarea>
 			<br><br>
 
-			Upload file: <input type="file" name="file">
-			<span class="error"> <?php echo $uploadErr;?></span>
-			<br><br>
 
 			Phone number: <input type='text' name='phone' value='+91'>
 			<span class="error">* <?php echo $phoneErr;?></span>
@@ -187,7 +188,8 @@
 			<a href="TRN-18/index.php">Assignment 2</a>
 			<a href="TRN-20/index.php">Assignment 3</a>
 			<a href="TRN-42/index.php">Assignment 4</a>
-			<a href="TRN-45">Assignment 5</a>
+			<a href="TRN-45/index.php">Assignment 5</a>
+			<a href="TRN-55/index.php">Assignment 6</a>
 			<a href="#">&raquo;</a>
 		</div>
 
