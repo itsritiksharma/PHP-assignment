@@ -1,34 +1,34 @@
 <?php
 	if (isset($_POST['submit']))
 		{
-			// $accessKey='2838541c68587385fa05e5ec91828728';
+			$accessKey='2838541c68587385fa05e5ec91828728';
 
-			// $email_address='support@apilayer.com';
+			$email_address='support@apilayer.com';
 
-			// $ch = curl_init('http://apilayer.net/api/check?access_key='.$accessKey.'&email='.$email.'');
+			$ch = curl_init('http://apilayer.net/api/check?access_key='.$accessKey.'&email='.$email.'');
 
-			// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-			// // Store the data:
-			// $json = curl_exec($ch);
+			// Store the data:
+			$json = curl_exec($ch);
 
-			// curl_close($ch);
+			curl_close($ch);
 
-			// // Decode JSON response:
-			// $validationResult = json_decode($json, true);
+			// Decode JSON response:
+			$validationResult = json_decode($json, true);
 
-			// // Access and use your preferred validation result objects
-			// if ($validationResult['format_valid'] == true)
-			// 	{
-			// 		echo "Email id is: ".$email;
-			// 	}
+			// Access and use your preferred validation result objects
+			if ($validationResult['format_valid'] == true)
+				{
+					echo "Email id is: ".$email;
+				}
 
-			// else
-			// 	{
-			// 		$emailErr="Email not valid";
-			// 	}
-			// $validationResult['smtp_check'];
-			// $validationResult['score'];
+			else
+				{
+					$emailErr="Email not valid";
+				}
+			$validationResult['smtp_check'];
+			$validationResult['score'];
 
 			if (!($first_name&&$last_name&&$email))
 				{
