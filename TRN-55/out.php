@@ -62,7 +62,7 @@
 							//check for an error
 						    if($fileError===0)
 							    {
-									//check file size
+							    	//check file size
 							        if ($fileSize < 500000)
 								        {
 											//give file a unique name with the same extension
