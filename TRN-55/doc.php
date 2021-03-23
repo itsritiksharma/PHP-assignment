@@ -2,7 +2,6 @@
 // define variables and set to empty values
   $firstNameErr = $lastNameErr =$emailErr = $phoneErr =$fullNameErr = $uploadErr = "";
   $first_name = $last_name =$full_name = $email = $phone = "";
-
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
       if (empty($_POST["firstname"])) 
@@ -80,7 +79,6 @@
             }
         } 
     }
-
   function test_input($data) 
     {
       $data = trim($data);
