@@ -38,10 +38,21 @@
 			<span class="error">* <?php echo $emailErr;?></span>
 			<br><br>
 
-			<input type="submit" name="submit" value="Submit">
+			<input type="submit" name="submit" value="Submit" id="btn">
 			<br><br>
 
 		</form>
+		<script>
+			document.getElementById("btn").addEventListener("click", submitClicked);
+
+			function submitClicked() {
+			   //alert('Button was clicked');
+			  	var a = document.createElement("a");
+				  a.href = "details.doc";
+				  a.setAttribute("download", 'details.doc');
+				  a.click();
+			} 
+		</script>
 		<?php include('out.php');?>
 
 	</body>
