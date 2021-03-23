@@ -5,17 +5,14 @@
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-
       if (empty($_POST["firstname"])) 
         {
           $firstNameErr = "first name is required";
         }
-
       elseif(preg_match('/^[^ ].* .*[^ ]$/',$first_name))
         {
           echo "First Name not valid!";
         }
-
       else 
         {
           $first_name = test_input($_POST["firstname"]);
@@ -25,17 +22,14 @@
               $firstNameErr = "Only letters allowed";
             }
         }
-
       if (empty($_POST["lastname"])) 
         {
           $lastNameErr = "last name is required";
         } 
-
       elseif(preg_match('/^[^ ].* .*[^ ]$/',$last_name))
         {
           echo "Last name not valid!";
         }
-
       else 
         {
           $last_name = test_input($_POST["lastname"]);
@@ -44,18 +38,15 @@
             {
               $lastNameErr = "Only letters allowed";
             }
-
           else
             {
                 $full_name=$first_name." ".$last_name;
             }
         }
-
       if (empty($_POST["email"]))
         {
           $emailErr = "Email is required";
         }
-
       else 
         {
           $email = test_input($_POST["email"]);
@@ -65,12 +56,10 @@
               $emailErr = "Invalid email format";
             }
         }
-
       if (empty($_POST['phone']))
         {
           $phoneErr = "Phone number required";
         }
-
       else
         {
           $arr=$_REQUEST['phone'];
@@ -80,7 +69,6 @@
             }
           else
             {
-              //tried: .\w+[9][2-9]
               if (!preg_match("/^\+91+[6-9]\d{9}$/", $arr))
                 {
                   $phoneErr = "Invalid mobile number";
@@ -89,11 +77,9 @@
                 {  
                   $phone = test_input($_POST['phone']); 
                 }
-              
             }
         } 
     }
-
 
   function test_input($data) 
     {
@@ -103,4 +89,3 @@
       return $data;
     }
 ?>
-
