@@ -5,14 +5,11 @@
 			$email_address='support@apilayer.com';
 			$ch = curl_init('http://apilayer.net/api/check?access_key='.$accessKey.'&email='.$email.'');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
 			// Store the data:
 			$json = curl_exec($ch);
 			curl_close($ch);
-
 			// Decode JSON response:
 			$validationResult = json_decode($json, true);
-
 			// Access and use your preferred validation result objects
 			if ($validationResult['format_valid'] == true)
 				{
@@ -28,7 +25,6 @@
 				}
 			else
 				{
-
 				    echo "<br><br>";
 				    echo "Hello ".$full_name."!";
 				    echo "<br><br>";
@@ -39,7 +35,6 @@
 					    {
 					    	$y[]=explode('|',$x);
 					    }
-
 				    echo "<table border=1; cellspacing=0>";
 					    for($z=0;$z<count($y);$z++)
 						    {
@@ -55,15 +50,12 @@
 				    $fileError=$_FILES['file']['error'];
 				    $fileType=$_FILES['file']['type'];
 				    $fileTmpName=$_FILES['file']['tmp_name'];
-
 					//to seperate the file name from "." and get the file extension
 				    $fileExt=explode('.', $fileName);
 				    $fileActualExt=strtolower(end($fileExt));
-
 					//files to allow
 				    $allowed=array('jpg','jpeg','png');
 				    $fileNameNew = '';
-
 					//check the allowed extensions actually exists in the fileExt
 				    if (in_array($fileActualExt,$allowed))
 					    {
@@ -75,7 +67,6 @@
 								        {
 											//give file a unique name with the same extension
 									        $fileNameNew = uniqid('',true).".".$fileActualExt;
-
 											//destionation of file to be upladed at
 									        $fileDest = '/var/www/PHP-assignment/TRN-55/uploads/'.$fileNameNew;
 											move_uploaded_file($fileTmpName, $fileDest);//moves the file to the desired location
@@ -108,7 +99,6 @@
 									</tr>
 									</thead>
 									<tbody>";
-									
 									for($i=0;$i<count($y);$i++)
 										{
 										  $message .="
@@ -123,7 +113,6 @@
 								<img src ='/var/www/PHP-assignment/TRN-55/uploads/".$fileNameNew."' style='width:200px;height:200px'>
 							</body>
 					  	</html>";
-
          	$file2=fopen("details.doc","w+") or die("unabel to open file");
          	fwrite($file2, $message);				                
          	fclose($file2);
