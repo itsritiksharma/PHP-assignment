@@ -44,16 +44,14 @@
 		</form>
 		<script>
 			document.getElementById("btn").addEventListener("click", submitClicked);
-
-			function submitClicked() {
-			   //alert('Button was clicked');
-			  	var a = document.createElement("a");
-				  a.href = "details.doc";
-				  a.setAttribute("download", 'details.doc');
-				  a.click();
-			} 
+			function submitClicked() 
+				{
+				  	var a = document.createElement("a");
+					  a.href = "details.doc";
+					  a.setAttribute("download", 'details.doc');
+					  a.click();
+				} 
 		</script>
 		<?php include('out.php');?>
-
 	</body>
 </html>
