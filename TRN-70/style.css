@@ -29,7 +29,7 @@ body{
   flex-wrap:wrap;
   align-items: center;
 }
-.row:nth-child(even){
+.row:nth-child(odd){
   flex-direction: row-reverse;
 }
 .image{
