@@ -6,7 +6,14 @@
 </head>
 <body>
   <form method='post'>
-    Rock, paper or scissors? <input type='text' name='user_input'>
+    <p>Please select your move:</p>
+    <input type="radio" id="rock" name="user_input" value="rock">
+    <label for="rock">Rock</label><br>
+    <input type="radio" id="paper" name="user_input" value="paper">
+    <label for="paper">Paper</label><br>
+    <input type="radio" id="scissors" name="user_input" value="scissors">
+    <label for="scissors">Scissors</label>
+    <br><br>
     <input type='submit' name='submit'value='Submit'>
   </form>
 </body>
