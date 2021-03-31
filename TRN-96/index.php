@@ -13,7 +13,7 @@
 </body>
 </html>
 <?php
-    include ('mail.php');
+    include ('Mailer.php');
     use MailSpace\Mailer as Mailer;
     if (isset($_POST['submit'])){
       $new_mail = new Mailer();
