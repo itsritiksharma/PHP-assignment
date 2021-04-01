@@ -1,10 +1,10 @@
 <?php
   namespace Tablearea;
   class Table{
-    function DispTable(){
-      for($row=1; $row < 7; $row++){
+    function DispTable($rows,$columns){
+      for($row=1; $row < $rows+1; $row++){
         echo "<tr>";
-        for($column=1; $column < 6; $column++){
+        for($column=1; $column < $columns+1; $column++){
           $multiply=$row*$column;
           echo '<td>'.$row.'*'.$column.'='.$multiply.'</td>';
         }

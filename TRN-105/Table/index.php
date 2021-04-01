@@ -10,7 +10,9 @@
     include 'Table.php';
     use Tablearea\Table as Table;
     $table = new Table();
-    $output_table = $table->DispTable();
+    $row = 6;
+    $column = 5;
+    $output_table = $table->DispTable($row,$column);
     ?>
   </table>
 </body>
