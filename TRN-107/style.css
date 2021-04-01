@@ -1,0 +1,10 @@
+*{
+  text-align: center;
+  box-sizing: border-box;:
+}
+table, td, th{
+  border:1px solid;
+}
+td,th{
+  padding:10px;
+}
