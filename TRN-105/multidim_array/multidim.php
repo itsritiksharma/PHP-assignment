@@ -1,23 +1,7 @@
 <?php
 namespace Multidimensional;
 class ArrayDim{
-  function ComputeMultiDimArray() {
-    $array1 = [
-      [
-        "1","2","3"
-      ],
-      [
-        "4","5","6"
-      ]
-    ];
-    $array2 = [
-      [
-        "7","8","9"
-      ],
-      [
-        "10","55","12"
-      ],
-    ];
+  function ComputeMultiDimArray($array1,$array2) {
     if(count($array1)!=count($array2)){
       echo "Please send equal array";
     }
