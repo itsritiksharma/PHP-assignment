@@ -7,7 +7,7 @@
       $this->conn = $conn;
     }
     //function to send the data into database
-    function sendData(){
+    function sendData($table1data,$table2data,$table3data){
       //$table#data is an array which has data about the of table
       //Query to insert in employee_code_table using prepare statement.
       $query1 = $this->conn->prepare("INSERT INTO employee_code_table (employee_code, employee_code_name, employee_domain)
@@ -22,18 +22,18 @@
       VALUES (?, ?, ?, ?);");
       $query3->bind_param("sssi",$employee_id,$employee_first_name,$employee_last_name,$graduation_percentile);
       //Set data for employee_code_table and execute query1.
-      $employee_code = $_POST['employeeCode'];
-      $employee_code_name = $_POST['employeeCodeName'];
-      $employee_domain = $_POST['employeeDomain'];
+      $employee_code = $table1data[0];
+      $employee_code_name = $table1data[1];
+      $employee_domain = $table1data[2];
       $query1->execute();
       //Set data for employee_salary_table and execute query2.
-      $employee_id = $_POST['employeeID'];
-      $employee_salary = $_POST['employeeSalary'];
+      $employee_id = $table2data[0];
+      $employee_salary = $table2data[1];
       $query2->execute();
       //Set data for employee_details_table and execute query3.
-      $employee_first_name = $_POST['employeeFirstName'];
-      $employee_last_name = $_POST['employeeLastName'];
-      $graduation_percentile = $_POST['graduationPercentile'];
+      $employee_first_name = $table3data[1];
+      $employee_last_name = $table3data[2];
+      $graduation_percentile = $table3data[3];
       $query3->execute();
       //append all queries into one and run multiple queries with multi_query
       $query = $query1.$query2.$query3;
