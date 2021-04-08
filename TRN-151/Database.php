@@ -7,18 +7,38 @@
       $this->conn = $conn;
     }
     //function to send the data into database
-    function sendData($table1data,$table2data,$table3data){
+    function sendData(){
       //$table#data is an array which has data about the of table
-      //Query to insert in employee_code_table
-      $query = "INSERT INTO employee_code_table (employee_code, employee_code_name, employee_domain)
-      VALUES ('".$table1data[0]."', '".$table1data[1]."', '".$table1data[2]."');";
+      //Query to insert in employee_code_table using prepare statement.
+      $query1 = $this->conn->prepare("INSERT INTO employee_code_table (employee_code, employee_code_name, employee_domain)
+      VALUES (?, ?, ?);");
+      $query1->bind_param("sss",$employee_code,$employee_code_name,$employee_domain);
+      echo "hello1";
       //Query to insert in employee_salary_table
-      $query .= "INSERT INTO employee_salary_table (employee_id, employee_salary, employee_code)
-      VALUES ('".$table2data[0]."', '".$table2data[1]."', '".$table2data[2]."');";
+      $query2 = $this->conn->prepare("INSERT INTO employee_salary_table (employee_id, employee_salary, employee_code)
+      VALUES (?, ?, ?);");
+      $query2->bind_param("sis",$employee_id,$employee_salary,$employee_code);
+      echo "hello2";
       //Query to insert in employee_details_table
-      $query .= "INSERT INTO employee_details_table (employee_id, employee_first_name, employee_last_name, graduation_percentile)
-      VALUES ('".$table3data[0]."', '".$table3data[1]."', '".$table3data[2]."','".$table3data[3]."')";
-
+      $query3 = $this->conn->prepare("INSERT INTO employee_details_table (employee_id, employee_first_name, employee_last_name, graduation_percentile)
+      VALUES (?, ?, ?, ?);");
+      $query3->bind_param("sssi",$employee_id,$employee_first_name,$employee_last_name,$graduation_percentile);
+      //Set data for employee_code_table and execute query1.
+      $employee_code = $_POST['employeeCode'];
+      $employee_code_name = $_POST['employeeCodeName'];
+      $employee_domain = $_POST['employeeDomain'];
+      $query1->execute();
+      //Set data for employee_salary_table and execute query2.
+      $employee_id = $_POST['employeeID'];
+      $employee_salary = $_POST['employeeSalary'];
+      $query2->execute();
+      //Set data for employee_details_table and execute query3.
+      $employee_first_name = $_POST['employeeFirstName'];
+      $employee_last_name = $_POST['employeeLastName'];
+      $graduation_percentile = $_POST['graduationPercentile'];
+      $query3->execute();
+      //append all queries into one and run multiple queries with multi_query
+      $query = $query1.$query2.$query3;
       if ($this->conn->multi_query($query) === TRUE) {
         echo "New records created successfully";
       } else {
