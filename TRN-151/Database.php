@@ -13,12 +13,10 @@
       $query1 = $this->conn->prepare("INSERT INTO employee_code_table (employee_code, employee_code_name, employee_domain)
       VALUES (?, ?, ?);");
       $query1->bind_param("sss",$employee_code,$employee_code_name,$employee_domain);
-      echo "hello1";
       //Query to insert in employee_salary_table
       $query2 = $this->conn->prepare("INSERT INTO employee_salary_table (employee_id, employee_salary, employee_code)
       VALUES (?, ?, ?);");
       $query2->bind_param("sis",$employee_id,$employee_salary,$employee_code);
-      echo "hello2";
       //Query to insert in employee_details_table
       $query3 = $this->conn->prepare("INSERT INTO employee_details_table (employee_id, employee_first_name, employee_last_name, graduation_percentile)
       VALUES (?, ?, ?, ?);");
