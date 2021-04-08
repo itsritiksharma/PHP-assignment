@@ -7,33 +7,25 @@
       $this->conn = $conn;
     }
     //function to send the data into database
-    function sendData($table1data,$table2data,$table3data){
+    function sendData($data){
       //$table#data is an array which has data about the of table
       //Query to insert in employee_code_table using prepare statement.
       $query1 = $this->conn->prepare("INSERT INTO employee_code_table (employee_code, employee_code_name, employee_domain)
       VALUES (?, ?, ?);");
-      $query1->bind_param("sss",$employee_code,$employee_code_name,$employee_domain);
+      $query1->bind_param("sss",$data['employeeCode'],$data['employeeCodeName'],$data['employeeDomain']);
       //Query to insert in employee_salary_table
       $query2 = $this->conn->prepare("INSERT INTO employee_salary_table (employee_id, employee_salary, employee_code)
       VALUES (?, ?, ?);");
-      $query2->bind_param("sis",$employee_id,$employee_salary,$employee_code);
+      $query2->bind_param("sis",$data['employeeID'],$data['employeeSalary'],$data['employeeCode']);
       //Query to insert in employee_details_table
       $query3 = $this->conn->prepare("INSERT INTO employee_details_table (employee_id, employee_first_name, employee_last_name, graduation_percentile)
       VALUES (?, ?, ?, ?);");
-      $query3->bind_param("sssi",$employee_id,$employee_first_name,$employee_last_name,$graduation_percentile);
-      //Set data for employee_code_table and execute query1.
-      $employee_code = $table1data[0];
-      $employee_code_name = $table1data[1];
-      $employee_domain = $table1data[2];
+      $query3->bind_param("sssi",$data['employeeID'],$data['employeeFirstName'],$data['employeeLastName'],$data['graduationPercentile']);
+      //execute query1.
       $query1->execute();
-      //Set data for employee_salary_table and execute query2.
-      $employee_id = $table2data[0];
-      $employee_salary = $table2data[1];
+      //execute query2.
       $query2->execute();
-      //Set data for employee_details_table and execute query3.
-      $employee_first_name = $table3data[1];
-      $employee_last_name = $table3data[2];
-      $graduation_percentile = $table3data[3];
+      //execute query3.
       $query3->execute();
       //append all queries into one and run multiple queries with multi_query
       $query = $query1.$query2.$query3;
