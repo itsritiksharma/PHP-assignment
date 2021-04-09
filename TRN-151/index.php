@@ -17,19 +17,22 @@
     <input type='submit' name='show_table' value='Show Table'><br>
   </form>
   <?php
-    include 'Database.php';
+
+    include_once 'Database.php';
+
     use FormData\Database as Database;
+
       $servername = "localhost";
       $username = "root";
-      $password = "Password";
-      $dbname = "databaseName";
+      $password = "Rs26!2!998";
+      $dbname = "Employee_database";
       //create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
       //If there's an error die
       if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
       }
-      else{
+      else {
         echo 'connected successfully';
         $newRecord = new Database($conn);
         //send data in database
