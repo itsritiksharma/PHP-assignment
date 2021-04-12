@@ -24,8 +24,8 @@
 
       $servername = "localhost";
       $username = "root";
-      $password = "Rs26!2!998";
-      $dbname = "Employee_database";
+      $password = "Password";
+      $dbname = "database";
       //create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
       //If there's an error die
