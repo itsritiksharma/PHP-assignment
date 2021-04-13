@@ -32,3 +32,4 @@
       echo "Password updated Successfully!<br><br>";
     }
   }
+?>
