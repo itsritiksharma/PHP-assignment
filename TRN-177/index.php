@@ -3,10 +3,10 @@ session_start();
 require_once './vendor/autoload.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-$consumerkey = "DpLfksh6ILGsrhaFrGZDRzP7C";
-$consumersecret = "S6USB5tLL7FkxOb8CZQ5DsKxORfFSk6BaZ5Dbw4sNZIdkc4k4y";
-$accesstoken = "1189279002-1n5JANhMdbYdLeSoyHpwxiDxLmBlxr45wP0VO8G";
-$accesstokensecret = "QdYhnPt92J8R1v3g2JwZUN6wodeQFzhP7GUWIy5sKnRAZ";
+$consumerkey = "Ckey";
+$consumersecret = "Csecret";
+$accesstoken = "Atoken";
+$accesstokensecret = "ATsecret";
 
 function getToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
   $connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
