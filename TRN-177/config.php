@@ -17,7 +17,6 @@
   //Set the OAuth 2.0 Redirect URI
   $google_client->setRedirectUri('http://localhost/TRN-177/index.php');
 
-  //
   $google_client->addScope('email');
 
   $google_client->addScope('profile');
