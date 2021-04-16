@@ -30,8 +30,8 @@
     $query->bind_param("sss", $uname, $mail, $pass);
     $query->execute();
     // Finally echo.
-    echo "Details saved successfully";
+    echo "Details saved successfully!!";
   }
   //close connection
   $conn->close();
-?>
+  ?>
