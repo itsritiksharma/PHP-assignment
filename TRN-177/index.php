@@ -5,6 +5,8 @@
 //Include Configuration File
 include('config.php');
 
+require_once 'database.php';
+
 $login_button = '';
 
 //This $_GET["code"] variable value received after user has login into their Google Account redirct to PHP script then this variable value has been received
@@ -84,14 +86,16 @@ if(!isset($_SESSION['access_token']))
    if($login_button == '')
    {
     echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-    echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-    echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-    echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-    echo '<h3><a href="logout.php">Logout</h3></div>';
+    echo '<img src="' . $_SESSION["user_image"] . '" class="img-responsive img-circle img-thumbnail" />';
+    echo '<h3><b>Name :</b> ' . $_SESSION['user_first_name'] . ' ' . $_SESSION['user_last_name'].'</h3>';
+    echo '<h3><b>Email :</b> ' . $_SESSION['user_email_address'] . '</h3>';
+    echo '<h3><a href="logout.php">Logout</a></h3></div>';
+    $connection = new data();
+    $user = $connection->checkUser($_SESSION);
    }
    else
    {
-    echo '<div align="center">'.$login_button . '</div>';
+    echo '<div align="center">' . $login_button . '</div>';
    }
    ?>
    </div>
@@ -102,14 +106,7 @@ if(!isset($_SESSION['access_token']))
    <br />
    <div class="panel panel-default">
     <div align="center">
-      <a href='https://github.com/login/oauth/authorize?client_id=7ceee2bb6300dd2fab8a&scope=user&state=888d696e30d904898b3c44793d7577bf84f11481'><button>Github Login</button></a>
-      <?php
-        $code = $_GET['code'];
-        include 'GithubLogin.php';
-        use GithubGists\Github as Github;
-        $account = new Github();
-        $account->SendData($code);
-      ?>
+      <a href='GithubLogin.php'><button>Github Login</button></a>
     </div>
    </div>
   </div>
