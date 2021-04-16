@@ -4,9 +4,9 @@
     public $conn;
     public $servername = "localhost";
     public $username = "root";
-    public $password = "Rs26!2!998";
-    public $dbname = "Users_data";
-    public $userTbl = "Users";
+    public $password = "password";
+    public $dbname = "dbname";
+    public $userTbl = "tbname";
     public function __construct(){
       $this->conn = new mysqli($this->servername, $this->username,  $this->password, $this->dbname);
     }
