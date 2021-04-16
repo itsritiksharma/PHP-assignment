@@ -26,12 +26,14 @@
     *
     */
     public function sendUserInfo($data, $encpass){
+      $question = explode("_",$data['question']);
+      $securityQuestion = $question[1];
       // Query to insert data in the database
-      $query = $this->conn->prepare("INSERT INTO Users(username, email, password) VALUES(?,?,?);");
-      $query->bind_param("sss", $data['username'], $data['email'], $encpass);
+      $query = $this->conn->prepare("INSERT INTO Users(username, email, password, security_question, security_answer) VALUES(?,?,?,?,?);");
+      $query->bind_param("sssss", $data['username'], $data['email'], $encpass, $securityQuestion, $data['answer']);
       $query->execute();
       // Redirect user to login page
       header("Location: SignUpSuccessful.php");
     }
   }
-?>
+  ?>

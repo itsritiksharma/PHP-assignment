@@ -71,7 +71,7 @@
         header("location: ToDoList.php");
       } else {
         // Echo if the email or password is invalid
-        echo "E-mail or password is invalid.<br> click here to <a href = 'Login.php'> try again </a>";
+        return "E-mail or password is invalid.<br> click here to <a href = 'Login.php'> try again </a>";
       }
     }
 
@@ -90,15 +90,23 @@
         header("Location: admin.php");
       }
       else {
+        $query = "SELECT * FROM Users WHERE email ='" . $data['email'] . "' and username = '" . $data['username'] . "';";
+        $userData = $this->conn->query($query);
+        if($userData->num_rows >0){
         // Check if the user is verified
-        if($cred['verify'] == 0) {
-          echo "Your account is not verified";
-        }
-        else {
+          if($cred['verify'] == 0) {
+            return "Your account is not verified";
+          }
+          else {
           // If user is verified and not admin create the session for user
-          $this->createSession($data,$cred);
+            $result =  $this->createSession($data,$cred);
+            return $result;
+          }
+        }
+        else{
+          return "No user found!!";
         }
       }
     }
   }
-?>
+  ?>

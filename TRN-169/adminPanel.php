@@ -48,7 +48,8 @@
       $query = "UPDATE Users SET verify = 1 WHERE user_id=" . $userid . ";";
       $verified = $this->conn->query($query);
       // Calls Users method
-      $this->Users();
+      $users = $this->Users();
+      return $users;
     }
   }
-?>
+  ?>
