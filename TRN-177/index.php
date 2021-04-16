@@ -44,11 +44,5 @@
       <button type='button' onclick="database()">Sign Up</button>
     </form>
   </div>
-    <!--   Email: <input type="email" name="email" id="email"><br>
-    Username: <input type="text" name="username" id="username"><br>
-    Password: <input type="password" name="password" id="password"><br> -->
-    <!-- Call database function on click -->
-    <!-- <button type='button' onclick="database()">Submit</button> -->
-    <!-- Display result -->
   </body>
   </html>
